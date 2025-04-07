@@ -11,8 +11,8 @@ def compress_eps_images(folder_paths, output_zip):
                         zipf.write(file_path, os.path.relpath(file_path, folder_path))
 
 if __name__ == "__main__":
-    folder_paths = ["/home/fenghua/Desktop/CUBIT-dev/eva_output/eva_range_25_01_22_11_06_39/graphs", 
-                    "/home/fenghua/Desktop/CUBIT-dev/eva_output/eva_diff-cardinality_25_03_04_19_47_53/graphs"]
-    output_zip = "/media/sf_ubuntu22/graph.zip" 
+    folder_paths = ["/home/gaofei/data_gf/gnu/eva_output/test_25_03_30/graphs"
+                    ]
+    output_zip = "/home/gaofei/data_gf/gnu/eva_output/test_25_03_30/graphs.zip" 
     compress_eps_images(folder_paths, output_zip)
     print(f"已将 {folder_paths} 中的所有 .eps 文件压缩为 {output_zip}")

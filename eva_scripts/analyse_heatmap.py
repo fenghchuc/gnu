@@ -59,8 +59,8 @@ def latency_analysis(filename):
 
 def draw_b(directory_path):
     # invoke gnuplot script
-    gnu_command = "gnuplot -e 'directory_path=\"" + directory_path + "\"' eva_scripts/gnuplot_scripts/b.gnuplot" 
-    print("Generating graph Throughput vs. UDI ratio using command \n\t" + gnu_command)
+    gnu_command = "gnuplot -e 'directory_path=\"" + directory_path + "\"' eva_scripts/gnuplot_scripts/heatmap.gnuplot" 
+    print("Generating heatmap graph using command \n\t" + gnu_command)
     os.system(gnu_command)
     print("\tGraphs are generated in the directory : " + os.path.join(directory_path, GRAPHS_DIR) + "\n")
 
