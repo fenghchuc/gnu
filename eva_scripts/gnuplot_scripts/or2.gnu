@@ -6,21 +6,18 @@ set size ratio 0.58  # 0.625 = 2.5 / 3.8
 set output sprintf("%s/graphs/or.eps", directory_path)
 
 set xrange [0:7]
-set yrange [10:160]
+set yrange [0:280]
 
-#set logscale x 4
-#set format x "4^{%L}"
+
 set xtics ("4" 0, "16" 1, "64" 2, "256" 3, "1k" 4, "4k" 5, "16k" 6, "64k" 7) font 'Linux Libertine O,28' offset 0,0.4,0
 set mxtics 4
-set tics scale 0.7,0.5 nomirror
-set ytics (10, 40, 70, 100, 130, 160) font 'Linux Libertine O,28'
+set tics scale 1,0.5 nomirror
+set ytics ("0" 0, "40" 40, "80" 80, "120" 120, "160" 160, "200" 200, "400" 240, "600" 280) font 'Linux Libertine O,28'
 
 set xlabel "Group Length" offset 0,1.2 font 'Linux Libertine O,25' 
-set ylabel "Query Latency (ms)" offset 1.2,-0.2 font 'Linux Libertine O,25' 
+set ylabel "Query Latency (ms)" offset 0,-0.2 font 'Linux Libertine O,25' 
 
-set key font 'Linux Libertine O,18' reverse vertical Left at graph 0.96, 0.88 maxrows 2 maxcols 3
-
-#set label 77 "{/:Bold (b)}" at 3,2100 font 'Linux Libertine O,25'
+set key font 'Linux Libertine O,18' reverse vertical Left at graph 0.95, 0.95 maxrows 2 maxcols 3
 
 #set border lc rgb "blue"
 
@@ -39,8 +36,8 @@ set bmargin 2.0
 #set label 7 "A64k" at graph 0.45, 0.55 tc rgb "#008080"
 #set label 8 "A128k" at graph 0.65, 0.85 tc rgb "#8B4513"
 #set label 9 "Scan" at graph 0.65, 0.80 tc rgb "dark-orange" 	
-set arrow 1 from 1.9,153 to 2.5,148 head filled size screen 0.03,15,45 lw 5 lc rgb "dark-orange"
-set label 10 "Scan(623ms)" at graph 0.02, 0.96 tc rgb "dark-orange" font 'Linux Libertine O,20'
+#set arrow 1 from 2,153 to 2.6,148 head filled size screen 0.03,15,45 lw 5 lc rgb "dark-orange"
+#set label 10 "Scan(623ms)" at graph 0.01, 0.95 tc rgb "dark-orange" font 'Linux Libertine O,18'
 
 plot  sprintf("%s/distilled_data/or.dat", directory_path) index 0 title "A32" lc rgb '#8B0000' lw 8 ps 1.5 pt 4 with linespoints,\
 	sprintf("%s/distilled_data/or.dat", directory_path) index 1 title "A256" lc rgb '#006400' lw 8 ps 1.5 pt 6 with linespoints,\
@@ -50,10 +47,10 @@ plot  sprintf("%s/distilled_data/or.dat", directory_path) index 0 title "A32" lc
 	sprintf("%s/distilled_data/or.dat", directory_path) index 5 title "A16k" lc rgb '#FF8C00' lw 8 ps 1.5 pt 14 with linespoints, \
 	sprintf("%s/distilled_data/or.dat", directory_path) index 6 title "A64k" lc rgb '#008080' lw 8 ps 1.5 pt 3 with linespoints,\
 	sprintf("%s/distilled_data/or.dat", directory_path) index 7 title "A128k" lc rgb '#8B4513' lw 8 ps 1.5 pt 2 with linespoints,\
-	'-' with lines lc rgb "dark-orange" lw 8 lt 2 dashtype 2 notitle
-	0.5 145
-	6.3 145
-	e
+	#'-' with lines lc rgb "dark-orange" lw 8 lt 2 dashtype 2 notitle
+	#0.5 145
+	#6.1 145
+	#e
 	
 	
 

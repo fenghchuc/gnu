@@ -2,7 +2,7 @@
 
 reset
 set terminal eps size 10, 3.5 font 'Linux Libertine O,25' 
-set output sprintf("%s/graphs/heatmap.eps", directory_path)
+set output "heatmap.eps"
 
 set xrange [-0.5:14.5]
 set yrange [7.5:-0.5]
@@ -33,6 +33,6 @@ set bmargin 2.1
 
 set palette defined(0 "#e3ecf2", 1 "#f8f8f8", 15 "#fdd3bd", 30 "#e98b6e", 45 "#c4393b", 60 "#a21227", 75 "#820822")
 
-plot sprintf("%s/distilled_data/test.distilled", directory_path) matrix with image ,\
+plot "data.distilled" matrix with image ,\
      '' matrix using 1:2:(sprintf("%s", $3 == 0 ? "✕" : sprintf("%.1f%%", $3))) with labels font 'Linux Libertine O,25' textcolor rgb 'black'
 

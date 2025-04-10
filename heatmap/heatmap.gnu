@@ -2,7 +2,7 @@
 
 reset
 set terminal eps size 10, 3.5 font 'Linux Libertine O,25' 
-set output sprintf("%s/graphs/heatmap.eps", directory_path)
+set output "heatmap.eps"
 
 set xrange [-0.5:14.5]
 set yrange [7.5:-0.5]
@@ -14,8 +14,9 @@ set cbtics offset -0.3,0,0 font 'Linux Libertine O,28' ("0" 0, "15%%" 15, "30%%"
 
 set tics nomirror out scale 0.5
 
-set xlabel offset 0,1.2,0 font 'Linux Libertine O,25' "GE Group Length"
-set ylabel offset 0.4,0,0 font 'Linux Libertine O,25' "Cardinality"
+set xlabel offset 0,1.2,0 font 'Linux Libertine O,28' "GE Group Size"
+set ylabel offset 0.4,0,0 font 'Linux Libertine O,28' "Cardinality"
+set cblabel offset 1.2,0,0 font 'Linux Libertine O,28' "Space Overhead"
 
 do for [i=0:14] {
     set arrow from i-0.5,-0.5 to i-0.5,7.5 nohead lc rgb 'black' lw 2 front
@@ -26,13 +27,13 @@ do for [j=0:7] {
 
 unset key
 
-set lmargin 8.8
-set rmargin 0
+set lmargin 8.9
+set rmargin 1.8
 set tmargin 0.4
-set bmargin 2.1
+set bmargin 2.2
 
-set palette defined(0 "#e3ecf2", 1 "#f8f8f8", 15 "#fdd3bd", 30 "#e98b6e", 45 "#c4393b", 60 "#a21227", 75 "#820822")
+set palette defined(0 "#e3ecf2", 1 "#f8f8f8", 15 "#f0d9da", 30 "#e7bbbc", 45 "#df9c9d", 60 "#d67e7f", 75 "#ce5f61")
 
-plot sprintf("%s/distilled_data/test.distilled", directory_path) matrix with image ,\
-     '' matrix using 1:2:(sprintf("%s", $3 == 0 ? "✕" : sprintf("%.1f%%", $3))) with labels font 'Linux Libertine O,25' textcolor rgb 'black'
+plot "data.distilled" matrix with image ,\
+     '' matrix using 1:2:(sprintf("%s", $3 == 0 ? "✕" : sprintf("%.0f%%", $3))) with labels font 'Linux Libertine O,30' textcolor rgb 'black'
 

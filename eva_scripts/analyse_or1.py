@@ -57,9 +57,9 @@ def latency_analysis(filename):
 
 
 
-def draw_c(directory_path):
+def draw_or1(directory_path):
     # invoke gnuplot script
-    gnu_command = "gnuplot -e 'directory_path=\"" + directory_path + "\"' eva_scripts/gnuplot_scripts/or.gnu" 
+    gnu_command = "gnuplot -e 'directory_path=\"" + directory_path + "\"' eva_scripts/gnuplot_scripts/or1.gnu" 
     print("Generating graph using command \n\t" + gnu_command)
     os.system(gnu_command)
     print("\tGraphs are generated in the directory : " + os.path.join(directory_path, GRAPHS_DIR) + "\n")
@@ -105,7 +105,7 @@ if __name__ == "__main__":
     ### Draw figures ###    
     create_directory(os.path.join(directory_path, GRAPHS_DIR))
 
-    draw_c(directory_path)
+    draw_or1(directory_path)
 
     convert_eps_to_pdf(directory_path)
 
